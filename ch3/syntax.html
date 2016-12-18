@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+</head>
+<body>
+<ol style="list-style-type: decimal">
+<li>Check if they are valid, correct if not valid
+<ol style="list-style-type: lower-alpha">
+<li><code>concat [[1, 2, 3], [4, 5, 6]]</code> -- Valid</li>
+<li><code>++ [1, 2, 3] [4, 5, 6]</code> -- Invalid. Can be corrected by: <code>(++) [1, 2, 3] [4, 5, 6]</code></li>
+<li><code>(++) &quot;hello&quot; &quot; world&quot;</code> -- Valid</li>
+<li><code>[&quot;hello&quot; ++ &quot; world]</code> -- Invalid. Can be corrected by <code>[&quot;hello&quot; ++ &quot; world&quot;]</code></li>
+<li><code>4 !! &quot;hello&quot;</code> -- Invalid. Can be corrected by <code>&quot;hello&quot; !! 4</code></li>
+<li><code>(!!) &quot;hello&quot; 4</code> -- Valid</li>
+<li><code>take &quot;4 lovely&quot;</code> -- Invalid. Can be corrected by <code>take 4 &quot;lovely&quot;</code></li>
+<li><code>take 3 &quot;awesome&quot;</code> -- Valid.</li>
+</ol></li>
+<li>Match the line of code with the result</li>
+</ol>
+<table>
+<thead>
+<tr class="header">
+<th> </th>
+<th>Code</th>
+<th> </th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(i)</td>
+<td><code>concat [[1 * 6], [2 * 6], [3 * 6]]</code></td>
+<td>(a)</td>
+<td><code>&quot;Jules&quot;</code></td>
+</tr>
+<tr class="even">
+<td>(j)</td>
+<td><code>&quot;rain&quot; ++ drop 2 &quot;elbow&quot;</code></td>
+<td>(b)</td>
+<td><code>[2,3,5,6,8,9]</code></td>
+</tr>
+<tr class="odd">
+<td>(k)</td>
+<td><code>10 * head [1, 2, 3]</code></td>
+<td>(c)</td>
+<td><code>&quot;rainbow&quot;</code></td>
+</tr>
+<tr class="even">
+<td>(l)</td>
+<td><code>(take 3 &quot;Julie&quot;) ++ (tail &quot;yes&quot;)</code></td>
+<td>(d)</td>
+<td><code>[6,12,18]</code></td>
+</tr>
+<tr class="odd">
+<td>(m)</td>
+<td><code>concat[tail [1, 2, 3], tail [4, 5, 6], tail [7, 8, 9]]</code></td>
+<td>(e)</td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table>
+<p>Result:</p>
+<ul>
+<li><ol style="list-style-type: lower-roman">
+<li>→ (d)</li>
+</ol></li>
+<li><ol start="10" style="list-style-type: lower-alpha">
+<li>→ (c)</li>
+</ol></li>
+<li><ol start="11" style="list-style-type: lower-alpha">
+<li>→ (e)</li>
+</ol></li>
+<li><ol start="12" style="list-style-type: lower-alpha">
+<li>→ (a)</li>
+</ol></li>
+<li><ol start="13" style="list-style-type: lower-alpha">
+<li>→ (b)</li>
+</ol></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsfonts,amssymb,amsmath}
+\author{Eli Sadoff}
+\title{Chapter 1 Exercises}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Combinators}
+Determine if each of the follow are combinators or not.
+\begin{enumerate}
+  \item $\lambda x.xxx$ --- This is a combinator because the only variable to appear in the body,
+$x$, is bound as it also appears in the head. 
+  \item $\lambda xy.xz$ --- This is not a combinator because $z$ is an unbound variable.
+  \item $\lambda xyz.xy(zx)$ --- This is a combinator because this simplifies to $\lambda xyz.zxy$
+and all of the body variables are bound in the head.
+  \item $\lambda xyz.xy(zyx)$ --- This is a combinator because this simplifies to $\lambda
+xyz.zyxy$ and all of the variables in the body are bound in the head.
+  \item $\lambda xy.xy(zxy)$ --- This is not a combinator because this simplifies to $\lambda
+xy.zxyy$ and $z$ is an unbound variable as it is headless.
+\end{enumerate}
+\section{Normal form or diverge?}
+Determine if each of the following can be reduced to a normal form or if they diverge.
+\begin{enumerate}
+  \item $\lambda x.xxx$ --- This is already in normal form and thus it is not divergent. 
+  \item $(\lambda z.zz)(\lambda y.yy)$ --- This is divergent. We can say that we will bind $z$
+    to $(\lambda y.yy)$ which then evaluates to $(\lambda y.yy)(\lambda y.yy)$. As $(\lambda
+    y.yy)$ is alpha equivalent to $(\lambda z.zz)$ we can say that this diverges.
+  \item $(\lambda x.xxx)z$ --- This can be reduced to normal form. We can bind $x$ to $z$ and
+    then get $zzz$ which is not divergent. 
+\end{enumerate}
+
+\section{Beta reduce}
+Evaluate (that is, beta reduce) each of the following expressions to normal form. 
+
+\begin{enumerate}
+  \item $(\lambda abc.cba)zz(\lambda wv.w)$ --- This evaluates relatively easily. Here are the
+    bindings $a \to z$, $b \to z$, and $c \to (\lambda wv.w)$. We can do the first reduction like
+    this:
+    $(\lambda z.zz(\lambda wv.w))$. This reduces to $(\lambda wv.w)(\lambda wv.w)$.
+\end{enumerate}
+
+\end{document}
